@@ -7,19 +7,31 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <!-- Header / Navbar -->
-  <header>
-    <nav>
-      <h1 class="logo">Aman</h1>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
-    </nav>
-  </header>
+<header>
+  <nav class="navbar">
+    <!-- Logo -->
+    <h1 class="logo">Aman</h1>
+
+    <!-- Hamburger Icon (visible only on mobile) -->
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      ☰
+    </button>
+
+    <!-- Nav Links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Dark Mode Toggle (always visible) -->
+    <button id="darkModeToggle" class="dark-toggle" title="Toggle Dark Mode">🌙</button>
+  </nav>
+</header>
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -89,3 +101,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
