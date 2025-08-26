@@ -35,6 +35,20 @@ body.dark-mode .btn {
 body.dark-mode .btn:hover {
   background: #007c91;
 }
+body.dark-mode section h2 {
+  color: #e0e0e0;   /* or #e0e0e0 for softer white */
+}
+body.dark-mode .skills-list span {
+  background: #333;  /* darker pill */
+  color: #fff;       /* white text */
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+}
+body.dark-mode .skills-list span:hover {
+  transform: scale(1.1);
+  background: #00bcd4;
+  color: #fff;
+  box-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+}
 
 /* Navbar */
 header {
@@ -230,3 +244,4 @@ footer {
   from { transform: translateY(-30px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
