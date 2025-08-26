@@ -1,14 +1,39 @@
-﻿/* General Reset */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Segoe UI", sans-serif;
   line-height: 1.6;
   color: #333;
+  background: #fff;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+body.dark-mode header {
+  background: #1e1e1e;
+}
+body.dark-mode footer {
+  background: #1e1e1e;
+}
+body.dark-mode .project-card {
+  background: #1f1f1f;
+  border-color: #444;
+}
+body.dark-mode .btn {
+  background: #0097a7;
+}
+body.dark-mode .btn:hover {
+  background: #007c91;
 }
 
 /* Navbar */
@@ -16,6 +41,9 @@ header {
   background: #222;
   color: #fff;
   padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 nav {
   display: flex;
@@ -35,24 +63,36 @@ nav {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s;
 }
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: #00bcd4;
+}
+#darkModeToggle {
+  margin-left: 1rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 /* Hero */
 .hero {
   height: 80vh;
-  background: linear-gradient(to right, #00bcd4, #4caf50);
+  background: linear-gradient(120deg, #00bcd4, #4caf50);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
+  animation: fadeIn 2s ease;
 }
 .hero h2 {
   font-size: 2.5rem;
+  animation: slideIn 1.5s ease;
 }
 .hero p {
   margin: 1rem 0;
@@ -65,9 +105,11 @@ nav {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 8px;
+  transition: transform 0.2s;
 }
 .hero button:hover {
   background: #f1f1f1;
+  transform: scale(1.05);
 }
 
 /* Sections */
@@ -93,6 +135,10 @@ section h2 {
   padding: 0.5rem 1rem;
   background: #e0f7fa;
   border-radius: 6px;
+  transition: transform 0.2s;
+}
+.skills-list span:hover {
+  transform: scale(1.1);
 }
 
 /* Projects */
@@ -107,9 +153,11 @@ section h2 {
   border-radius: 8px;
   background: #fafafa;
   text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.project-card h3 {
-  margin-bottom: 0.5rem;
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
 }
 .project-card a {
   display: inline-block;
@@ -119,6 +167,7 @@ section h2 {
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
+  transition: background 0.3s;
 }
 .project-card a:hover {
   background: #0097a7;
@@ -136,9 +185,32 @@ section h2 {
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
+  transition: transform 0.2s;
 }
 #contact .btn:hover {
   background: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Scroll To Top */
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background: #00bcd4;
+  color: white;
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: background 0.3s;
+}
+#scrollTopBtn:hover {
+  background: #0097a7;
 }
 
 /* Footer */
@@ -147,4 +219,14 @@ footer {
   padding: 1rem;
   background: #222;
   color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
