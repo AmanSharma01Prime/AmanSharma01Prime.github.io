@@ -1,4 +1,4 @@
-﻿// Scroll to section smoothly
+// Scroll to section smoothly
 function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
@@ -23,4 +23,30 @@ window.addEventListener("scroll", () => {
       });
     }
   });
+});
+
+// Dark mode toggle
+const darkModeToggle = document.getElementById("darkModeToggle");
+darkModeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    darkModeToggle.textContent = "☀️";
+  } else {
+    darkModeToggle.textContent = "🌙";
+  }
+});
+
+// Scroll to top button
+let scrollTopBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function () {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+};
+
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
