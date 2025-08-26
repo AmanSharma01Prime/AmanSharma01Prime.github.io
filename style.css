@@ -245,3 +245,23 @@ footer {
   to { transform: translateY(0); opacity: 1; }
 }
 
+/* Responsive Fix for Small Screens */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+}
+
+
+
